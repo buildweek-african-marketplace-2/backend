@@ -1,4 +1,7 @@
 # backend
+<!-- Robert Allen and Mercy A-Ansong -->
+
+<!-- https://trello.com/b/t8YQKtf6/african-marketplace-2 -->
 
 ## POST https://afrikan-market.herokuapp.com/api/auth/register
 
