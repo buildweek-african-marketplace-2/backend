@@ -7,18 +7,10 @@ exports.up = async function(knex) {
       .notNullable()
       .unique();
     users.string('password', 255).notNullable();
-  });
-
-  await knex.schema.createTable('items', items => {
-    legos.increments();
-    legos.string('image').notNullable();
-    legos.string('name').notNullable();
-    legos.string('description').notNullable();
-    legos.string('price').notNullable();
+    users.string('image').notNullable();
   });
 };
 
 exports.down = async function(knex) {
   await knex.schema.dropTableIfExists('users');
-  await knex.schema.dropTableIfExists('items');
 };

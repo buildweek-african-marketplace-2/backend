@@ -5,10 +5,12 @@ exports.up = async function(knex) {
     items.string('name').notNullable();
     items.string('description').notNullable();
     items.string('price').notNullable();
+    items.string('location').notNullable();
   });
+
 };
 
 exports.down = async function(knex) {
-  await knex.schema.dropTableIfExists('users');
+  
   await knex.schema.dropTableIfExists('items');
 };
