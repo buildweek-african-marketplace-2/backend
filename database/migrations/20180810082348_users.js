@@ -7,6 +7,7 @@ exports.up = async function(knex) {
       .notNullable()
       .unique();
     users.string('password', 255).notNullable();
+    users.string('image').notNullable();
   });
 };
 
