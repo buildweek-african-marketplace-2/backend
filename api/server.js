@@ -13,7 +13,7 @@ server.use(cors());
 server.use(express.json());
 
 server.use('/api/auth', authRouter);
-// server.use('/api/items', authenticate, itemsRouter);
-server.use('/api/items', itemsRouter);
+server.use('/api/items', authenticate, itemsRouter);
+// server.use('/api/items', itemsRouter);
 
 module.exports = server;
