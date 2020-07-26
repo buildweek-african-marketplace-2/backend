@@ -10,3 +10,7 @@
 ## GET https://afrikan-market.herokuapp.com/api/items
 
 ## POST https://afrikan-market.herokuapp.com/api/items
+
+## PUT https://afrikan-market.herokuapp.com/api/items/:id
+
+## DELETE https://afrikan-market.herokuapp.com/api/items/:id
