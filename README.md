@@ -9,6 +9,8 @@
 
 ## GET https://afrikan-market.herokuapp.com/api/items
 
+## GET https://afrikan-market.herokuapp.com/api/items/:id
+
 ## POST https://afrikan-market.herokuapp.com/api/items
 
 ## PUT https://afrikan-market.herokuapp.com/api/items/:id
