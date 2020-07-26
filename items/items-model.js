@@ -4,11 +4,13 @@ module.exports = {
   add,
   find,
   findBy,
-  findById
+  findById,
+  update,
+  remove
 };
 
 function find() {
-  return db("items").select("image", "name", "description", "price");
+  return db("items").select("id", "image", "name", "description", "price", "location");
 }
 
 function findBy(filter) {
@@ -16,14 +18,30 @@ function findBy(filter) {
   return db("items").where(filter);
 }
 
-async function add(item) {
-  const [id] = await db("items").insert(item);
-
-  return findById(id);
-}
 
 function findById(id) {
   return db("items")
     .where({ id })
     .first();
+}
+
+async function add(item) {
+  const [id] = await db("items").insert(item)
+  .returning("id");
+  return findById(id);
+}
+
+
+async function update(id, changes) {
+  await db("items")
+      .where({ id })
+      .update(changes)
+      .returning("id")
+      return findById(id)
+}
+
+function remove(id) {
+  return db("items")
+      .where({ id })
+      .del()
 }
