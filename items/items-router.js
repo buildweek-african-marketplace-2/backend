@@ -16,36 +16,36 @@ router.get('/', async (req, res, next) => {
 
 
 
-// router.get("/:id", async (req, res, next) => {
-// 	try {
-// 		const item = await itemsDB.findById(req.params.id)
-// 		if (!item) {
-// 			return res.status(404).json({
-// 				message: "Item not found",
-// 			})
-// 		}
-
-// 		res.json(item)
-// 	} catch (err) {
-// 		next(err)
-// 	}
-// })
-
 router.get("/:id", async (req, res, next) => {
 	try {
-			const { id } = req.params
-			const item = await itemsDB.findById(id)
-			if (item) {
-					return res.status(200).json(item)
-			} else {
-					return res.status(404).json({ message: "Could not find item with this Id." })
-			}
+		const item = await itemsDB.findById(req.params.id)
+		if (!item) {
+			return res.status(404).json({
+				message: "Item not found",
+			})
+		}
 
-	}
-	catch (err) {
-			next(err)
+		res.json(item)
+	} catch (err) {
+		next(err)
 	}
 })
+
+// router.get("/:id", async (req, res, next) => {
+// 	try {
+// 			const { id } = req.params
+// 			const item = await itemsDB.findById(id)
+// 			if (item) {
+// 					return res.status(200).json(item)
+// 			} else {
+// 					return res.status(404).json({ message: "Could not find item with this Id." })
+// 			}
+
+// 	}
+// 	catch (err) {
+// 			next(err)
+// 	}
+// })
 
 
 
@@ -103,7 +103,8 @@ router.put("/:id", async (req, res, next) => {
 
 router.delete("/:id", async (req, res, next) => {
 	try {
-			const { id } = await itemsDB("item")
+		const { id } = req.params
+			const item = await itemsDB.remove(id)
 					.where({ id: req.params.id })
 					.del()
 			return res.status(200).json({ id: req.params.id })
