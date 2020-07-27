@@ -65,7 +65,7 @@ function getJwtToken(username) {
   const secret = process.env.JWT_SECRET || "is it secret, is it safe?";
 
   const options = {
-    expiresIn: "1d"
+    expiresIn: "5d"
   };
 
   return jwt.sign(payload, secret, options);
