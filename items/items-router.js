@@ -31,21 +31,6 @@ router.get("/:id", async (req, res, next) => {
 	}
 })
 
-// router.get("/:id", async (req, res, next) => {
-// 	try {
-// 			const { id } = req.params
-// 			const item = await itemsDB.findById(id)
-// 			if (item) {
-// 					return res.status(200).json(item)
-// 			} else {
-// 					return res.status(404).json({ message: "Could not find item with this Id." })
-// 			}
-
-// 	}
-// 	catch (err) {
-// 			next(err)
-// 	}
-// })
 
 
 
@@ -53,14 +38,6 @@ router.get("/:id", async (req, res, next) => {
 //   CREATE
 ///////////////////
 
-// router.post("/", async (req, res, next) => {
-// 	try {
-// 		const item = await itemsDB.add(req.body)
-// 		res.status(201).json(item)
-// 	} catch(err) {
-// 		next(err)
-// 	}
-// })
 
 router.post("/", async (req, res, next) => {
 	try {
