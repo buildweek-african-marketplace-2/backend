@@ -26,6 +26,21 @@ test("DELETE /api/items/2", async () => {
 })
 
 
+// EDIT ITEM
+test("EDIT /api/items/2", async () => {
+  
+  const item = await supertest(server).put("/api/items/2").send({ image: 'https://bit.ly/3jo6hU7',
+      name: 'dragon2',
+      description: 'very nice2',
+      price: 50, location: 'Nigeria'})
+      .set('authorization', 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImpvbiIsInJvbGUiOiJzdHVkZW50IiwiaWF0IjoxNTk2MDU0MTAxLCJleHAiOjE1OTY0ODYxMDF9.fUACUZBMlN3AF-4cbRmN4sWdEyG_IIguyalZ1_NT2Ck')
+
+      expect(res.headers["content-type"]).toBe("application/json; charset=utf-8")
+  // expect(res.body.id).toBe(1)
+  expect(res.statusCode).toBe(200);
+})
+
+
 
 
 
